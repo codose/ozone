@@ -50,7 +50,6 @@ public class LoginFragment extends BaseFragment {
     }
 
     private void navigateToReg() {
-        showToast("Checking.....");
         NavController navController = Navigation.findNavController(getActivity(), R.id.reg_navHostFragment);
         navController.navigate(R.id.action_loginFragment_to_registerFragment);
 
