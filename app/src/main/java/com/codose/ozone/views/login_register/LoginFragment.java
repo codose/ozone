@@ -1,5 +1,6 @@
 package com.codose.ozone.views.login_register;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,11 +15,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.codose.ozone.R;
+import com.codose.ozone.views.BaseFragment;
+import com.codose.ozone.views.update_details.UpdateDetailsActivity;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LoginFragment extends Fragment {
+public class LoginFragment extends BaseFragment {
 
     public LoginFragment() {
 
@@ -32,15 +35,24 @@ public class LoginFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Button login_button = view.findViewById(R.id.frgment_login_register_button);
+        Button register = view.findViewById(R.id.frgment_login_register_button);
+        Button login_btn = view.findViewById(R.id.frgment_login_button);
 
-        login_button.setOnClickListener(v ->
+       login_btn.setOnClickListener(v -> openDetails());
+
+        register.setOnClickListener(v ->
             navigateToReg()
         );
     }
 
+    private void openDetails() {
+        startActivity( new Intent(getContext(), UpdateDetailsActivity.class));
+    }
+
     private void navigateToReg() {
+        showToast("Checking.....");
         NavController navController = Navigation.findNavController(getActivity(), R.id.reg_navHostFragment);
         navController.navigate(R.id.action_loginFragment_to_registerFragment);
+
     }
 }

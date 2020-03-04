@@ -5,8 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.codose.ozone.R;
+import com.codose.ozone.views.BaseActivity;
 
-public class LoginRegisterActivity extends AppCompatActivity {
+public class LoginRegisterActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
